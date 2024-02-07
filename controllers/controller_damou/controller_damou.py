@@ -3,6 +3,7 @@
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
 from controller import Robot ,Motor , DistanceSensor, Compass
+import math
 
 class Motors ():
 
@@ -42,9 +43,16 @@ class monRobot(Robot):
         #     self.motors.turn_left()
         # pass
 
-        print(self.compass.getValues())
+        print(self.ValueCompass())
 
-    
+    def ValueCompass(self):
+        north = self.compass.getValues()
+        rad = math.atan2(north[1], north[0])
+        bearing = (rad - 1.5708) / math.pi * 180.0
+        if (bearing < 0.0):
+            bearing = bearing + 360.0
+        return bearing
+
 
 
 # create the Robot instance.
