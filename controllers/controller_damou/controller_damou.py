@@ -11,14 +11,24 @@ class Motors ():
         super().__init__()
         self.lwheel : Motor = robot.getDevice('left wheel')
         self.rwheel : Motor = robot.getDevice('right wheel')
-    
-    def turn_left(self):
-        self.lwheel.setPosition(-10.0)
-        self.rwheel.setPosition(0)
+        self.lwheel.setPosition(float("inf"))
+        self.rwheel.setPosition(float("inf"))
 
-    def strait(self):
-        self.lwheel.setPosition(10.0)
-        self.rwheel.setPosition(10.0)
+    def turn_left(self, Value):
+        self.lwheel.setVelocity(-Value)
+        self.rwheel.setVelocity(Value)
+
+    def turn_right(self, Value):
+        self.lwheel.setVelocity(Value)
+        self.rwheel.setVelocity(-Value)
+
+    def forward(self, Value):
+        self.lwheel.setVelocity(Value)
+        self.rwheel.setVelocity(Value)
+
+    def backward(self, Value):
+        self.lwheel.setVelocity(Value)
+        self.rwheel.setVelocity(Value)
 
 class monRobot(Robot):
     
@@ -28,20 +38,22 @@ class monRobot(Robot):
         self.motors=Motors(self)
 
 
-        # self.ps0:DistanceSensor = self.getDevice('ps0')
-        # self.ps7:DistanceSensor = self.getDevice('ps7')
-        # self.ps0.enable(self.timestep)
-        # self.ps7.enable(self.timestep)
+        self.so2:DistanceSensor = self.getDevice('so2')
+        self.so5:DistanceSensor = self.getDevice('so5')
+        self.so2.enable(self.timestep)
+        self.so5.enable(self.timestep)
         self.compass:Compass = self.getDevice('compass')
         self.compass.enable(self.timestep)
 
 
     def run(self):
-        self.motors.strait()
-        # print(self.ps0.getValue())
-        # if self.ps0.getValue() >= 0.5 and self.ps7.getValue() >= 0.5:
-        #     self.motors.turn_left()
-        # pass
+       
+        self.motors.forward(8)
+        
+        print(self.so2.getValue())
+        if (self.so2.getValue() <= 200 and self.so2.getValue() != 0) or (self.so5.getValue() <= 200 and self.so5.getValue() != 0):
+            self.motors.turn_left(5)
+        pass
 
         print(self.ValueCompass())
 
@@ -72,6 +84,7 @@ robot = monRobot()
 while robot.step(robot.timestep) != -1:
 
     robot.run() # on avance et on esquive les murs
+
 
 
     # Read the sensors:

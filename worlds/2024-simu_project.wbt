@@ -13,8 +13,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.1865324782408456 -0.23070168357623763 -0.9549776791927747 4.878063246539462
-  position -31.167806768890493 -4.645685319785206 15.17638995043801
+  orientation 0.2577485828014787 -0.3443775167157173 -0.9027567745769317 5.638587438227544
+  position -34.51807665079363 12.746831272341332 6.964598480245602
 }
 TexturedBackground {
   texture "twilight_cloudy_empty"
@@ -168,7 +168,7 @@ Road {
 }
 Pioneer3dx {
   translation -17.2725 22.2219 0.3675
-  rotation 0 0 1 -0.523595307179586
+  rotation 0 0 1 1.309
   controller "controller_damou"
   extensionSlot [
     Compass {
