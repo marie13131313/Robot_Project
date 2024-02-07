@@ -1,4 +1,4 @@
-#VRML_SIM R2023b utf8
+#VRML_SIM R2023a utf8
 
 EXTERNPROTO "../protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -8,12 +8,13 @@ EXTERNPROTO "../protos/Road.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidRoundedBox.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidPipe.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
 
 WorldInfo {
 }
 Viewpoint {
   orientation 0.1865324782408456 -0.23070168357623763 -0.9549776791927747 4.878063246539462
-  position -51.86906271364613 -111.3991010655149 56.02193046035591
+  position -31.167806768890493 -4.645685319785206 15.17638995043801
 }
 TexturedBackground {
   texture "twilight_cloudy_empty"
@@ -163,5 +164,14 @@ Road {
     10 30 0
     0 30 1
     0 36 2
+  ]
+}
+Pioneer3dx {
+  translation -17.2725 22.2219 0.3675
+  rotation 0 0 1 -0.523595307179586
+  controller "controller_damou"
+  extensionSlot [
+    Compass {
+    }
   ]
 }
