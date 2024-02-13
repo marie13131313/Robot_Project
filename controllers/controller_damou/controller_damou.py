@@ -27,34 +27,85 @@ class Motors ():
         self.rwheel.setVelocity(Value)
 
     def backward(self, Value):
-        self.lwheel.setVelocity(Value)
-        self.rwheel.setVelocity(Value)
+        self.lwheel.setVelocity(-Value)
+        self.rwheel.setVelocity(-Value)
 
 class monRobot(Robot):
     
     def __init__(self):
         super().__init__()
+    
         self.timestep = int(self.getBasicTimeStep())
         self.motors=Motors(self)
 
-
+        self.so1:DistanceSensor = self.getDevice('so1')
         self.so2:DistanceSensor = self.getDevice('so2')
+        self.so3:DistanceSensor = self.getDevice('so3')
+        self.so4:DistanceSensor = self.getDevice('so4')
         self.so5:DistanceSensor = self.getDevice('so5')
+        self.so6:DistanceSensor = self.getDevice('so6')
+
+        self.so1.enable(self.timestep)
         self.so2.enable(self.timestep)
+        self.so3.enable(self.timestep)
+        self.so4.enable(self.timestep)
         self.so5.enable(self.timestep)
+        self.so6.enable(self.timestep)
         self.compass:Compass = self.getDevice('compass')
         self.compass.enable(self.timestep)
 
+        self.route = False
+        self.test_cap = 0
+
+    def cap(self, cap_actuel, cap_vise):
+
+
+        if ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
+
+            if  cap_actuel >= cap_vise:
+                
+                self.motors.turn_left(0.5)
+                cap_actuel = self.ValueCompass()
+            elif cap_actuel <= cap_vise:
+                
+                self.motors.turn_right(0.5)
+                cap_actuel = self.ValueCompass()
+
+        else: 
+            self.route = True
 
     def run(self):
-       
-        self.motors.forward(8)
         
-        print(self.so2.getValue())
-        if (self.so2.getValue() <= 200 and self.so2.getValue() != 0) or (self.so5.getValue() <= 200 and self.so5.getValue() != 0):
-            self.motors.turn_left(5)
-        pass
+        
+        print("so1 : ",self.so1.getValue())
+        print("so2 : ",self.so2.getValue())
+        print("so3 : ",self.so3.getValue())
+        print("s04 : ",self.so4.getValue())
+        print("s05 : ",self.so5.getValue())
+        print("s06 : ",self.so6.getValue())
+        
+        
+        if self.route == False :
+            self.cap(self.ValueCompass() , 225)
 
+        elif self.so1.getValue() >= 550 or self.so2.getValue() >= 650 or self.so3.getValue() >= 750:
+              
+            self.motors.turn_right(5)
+           
+        elif self.so6.getValue() >= 550 or self.so5.getValue() >= 650 or self.so4.getValue() >= 750:
+
+            self.motors.turn_left(5)
+
+        elif self.test_cap == 100:
+
+            self.test_cap = 0
+            self.route = False
+
+        else:
+            self.motors.forward(8)
+            self.test_cap +=1
+        pass
+        
         print(self.ValueCompass())
 
     def ValueCompass(self):
