@@ -64,11 +64,11 @@ class monRobot(Robot):
 
             if  cap_actuel >= cap_vise:
                 
-                self.motors.turn_left(0.5)
+                self.motors.turn_left(1)
                 cap_actuel = self.ValueCompass()
             elif cap_actuel <= cap_vise:
                 
-                self.motors.turn_right(0.5)
+                self.motors.turn_right(1)
                 cap_actuel = self.ValueCompass()
 
         else: 
@@ -88,21 +88,21 @@ class monRobot(Robot):
         if self.route == False :
             self.cap(self.ValueCompass() , 225)
 
-        elif self.so1.getValue() >= 550 or self.so2.getValue() >= 650 or self.so3.getValue() >= 750:
+        elif self.so1.getValue() >= 450 or self.so2.getValue() >= 450 or self.so3.getValue() >= 450:
               
             self.motors.turn_right(5)
            
-        elif self.so6.getValue() >= 550 or self.so5.getValue() >= 650 or self.so4.getValue() >= 750:
+        elif self.so6.getValue() >= 450 or self.so5.getValue() >= 450 or self.so4.getValue() >= 450:
 
             self.motors.turn_left(5)
 
-        elif self.test_cap == 100:
+        elif self.test_cap == 40:
 
             self.test_cap = 0
             self.route = False
 
         else:
-            self.motors.forward(8)
+            self.motors.forward(9)
             self.test_cap +=1
         pass
         
