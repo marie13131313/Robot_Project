@@ -56,23 +56,32 @@ class monRobot(Robot):
 
         self.route = False
         self.test_cap = 0
+        self.dect = True
 
     def cap(self, cap_actuel, cap_vise):
 
-
-        if ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
-
+        if self.dect == False:
+                pass
+        
+        elif ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
+            
             if  cap_actuel >= cap_vise:
                 
+
                 self.motors.turn_left(1)
                 cap_actuel = self.ValueCompass()
+               
+
             elif cap_actuel <= cap_vise:
                 
                 self.motors.turn_right(1)
                 cap_actuel = self.ValueCompass()
+                
 
         else: 
             self.route = True
+            self.dect = False
+
 
     def run(self):
         
@@ -88,21 +97,21 @@ class monRobot(Robot):
         if self.route == False :
             self.cap(self.ValueCompass() , 225)
 
-        elif self.so1.getValue() >= 450 or self.so2.getValue() >= 450 or self.so3.getValue() >= 450:
-              
+        elif self.so1.getValue() >= 400 or self.so2.getValue() >= 400 or self.so3.getValue() >= 400:
+            self.dect = True
             self.motors.turn_right(5)
            
-        elif self.so6.getValue() >= 450 or self.so5.getValue() >= 450 or self.so4.getValue() >= 450:
-
+        elif self.so6.getValue() >= 400 or self.so5.getValue() >= 400 or self.so4.getValue() >= 400:
+            self.dect = True
             self.motors.turn_left(5)
 
-        elif self.test_cap == 40:
+        elif self.test_cap >= 40:
 
             self.test_cap = 0
             self.route = False
 
         else:
-            self.motors.forward(9)
+            self.motors.forward(12)
             self.test_cap +=1
         pass
         
