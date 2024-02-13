@@ -44,29 +44,20 @@ class MarieBastienRobot(Robot):
                 self.back_left_wheel.setVelocity(self.max_speed)
                 self.front_right_wheel.setVelocity(0)
                 self.back_right_wheel.setVelocity(0)
+
             elif self.ds_left.getValue() < self.wall_distance_threshold:
                 # Éviter le mur à droite
                 self.front_left_wheel.setVelocity(0)
                 self.back_left_wheel.setVelocity(0)
                 self.front_right_wheel.setVelocity(self.max_speed)
                 self.back_right_wheel.setVelocity(self.max_speed)
+                
             else:
-            #     # Suivre la piste en utilisant le capteur avant
-            #     if front_distance > self.wall_distance_threshold:
-            #         # Aucun mur devant, avancer
-            #         self.robot.set_left_velocity(self.max_speed)
-            #         self.robot.set_right_velocity(self.max_speed)
-            #     else:
-            #       # Mur devant, ajuster la direction
                     self.front_left_wheel.setVelocity(self.max_speed)
                     self.back_left_wheel.setVelocity(self.max_speed)
                     self.front_right_wheel.setVelocity(self.max_speed)
                     self.back_right_wheel.setVelocity(self.max_speed)
 
-            # # Pause pour permettre la lecture des capteurs
-            # self.robot.wait(0.1)
-
-
-
 robot = MarieBastienRobot()
 robot.run()
+
