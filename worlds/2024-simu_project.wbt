@@ -1,34 +1,64 @@
-#VRML_SIM R2023b utf8
+#VRML_SIM R2023a utf8
 
-EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "../protos/RoadLine.proto"
+EXTERNPROTO "../protos/SolidPipe1.proto"
+EXTERNPROTO "../protos/SolidPipe2.proto"
+EXTERNPROTO "../protos/SolidPipe3.proto"
+EXTERNPROTO "../protos/SolidPipe4.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Asphalt.proto"
 EXTERNPROTO "../protos/Road.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidRoundedBox.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidPipe.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/obstacles/protos/Ramp30deg.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/solids/protos/SolidBox.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.1865324782408456 -0.23070168357623763 -0.9549776791927747 4.878063246539462
-  position -51.86906271364613 -111.3991010655149 56.02193046035591
-}
-TexturedBackground {
-  texture "twilight_cloudy_empty"
+  orientation -0.13956153707693975 -0.8582646328127163 0.4938667810569722 5.647051227508112
+  position -5.531385165505226 7.977356570377941 5.426259461952099
 }
 TexturedBackgroundLight {
 }
+TexturedBackground {
+  texture "twilight_cloudy_empty"
+  skyColor [
+    0 0 1
+  ]
+}
 RectangleArena {
-  translation 1.35639 0.411838 0
+  translation 1.62531 0.849485 5.68434e-14
   floorSize 35 35
   floorTileSize 20 20
   floorAppearance Parquetry {
     type "light strip"
   }
   wallThickness 0.5
-  wallHeight 1
+  wallHeight 0
+}
+Floor {
+  translation -15 22 0.01
+  name "Relay1"
+  size 5 5
+  appearance Parquetry {
+    colorOverride 1 0 1
+  }
+}
+Floor {
+  translation -45 52 0.01
+  name "Relay2"
+  size 5 5
+  appearance Parquetry {
+    colorOverride 0 1 1
+  }
+}
+Ramp30deg {
+  translation -14.1511 19.1333 3.55271e-15
+  rotation 0 0 1 1.8326
 }
 RectangleArena {
   translation -29.7867 36.7686 1.03739e-12
@@ -52,96 +82,57 @@ RectangleArena {
   wallThickness 0.5
   wallHeight 1
 }
-SolidPipe {
+SolidPipe1 {
   translation -74.1397 75.406 2
   rotation 1 0 0 -1.5707953071795862
+  name "pipe4"
   height 12
+  appearance PBRAppearance {
+    baseColor 1 1 0
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
 }
-SolidPipe {
+SolidPipe2 {
   translation -60.6807 69.4101 7
   rotation 1 0 0 -1.5707953071795862
-  name "pipe(1)"
+  name "pipe2"
   height 5
+  appearance PBRAppearance {
+    baseColor 0 1 1
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
 }
-SolidPipe {
+SolidPipe3 {
   translation -53.934 76.2414 4
   rotation -0.8768880072093348 -0.33990200279450433 0.3399030027945126 1.7018
-  name "pipe(3)"
+  name "pipe1"
   height 8
+  appearance PBRAppearance {
+    baseColor 1 0 1
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
 }
-SolidPipe {
+SolidPipe4 {
   translation -68.7366 59.6817 10
   rotation -0.5697930319719425 0.5810920326059464 -0.5810920326059464 2.10577
-  name "pipe(2)"
+  name "pipe3"
   height 5
-}
-SolidRoundedBox {
-  translation -14.8371 31.6911 2
-  size 5 10 5
-}
-SolidRoundedBox {
-  translation -34.8845 49.2527 2
-  name "rounded box(8)"
-  size 5 10 5
-}
-SolidRoundedBox {
-  translation -42.0283 31.498 2
-  rotation 0 0 1 1.56425
-  name "rounded box(7)"
-  size 5 10 5
-}
-SolidRoundedBox {
-  translation -21.8989 46.2055 1
-  rotation 0 0 -1 0.935933
-  name "rounded box(6)"
-  size 2 8 2
-}
-SolidRoundedBox {
-  translation -31.6855 27.8511 1
-  rotation 0 0 -1 0.00654517
-  name "rounded box(9)"
-  size 2 10 2
-}
-SolidRoundedBox {
-  translation -25.3049 38.1055 1
-  rotation 0 0 -1 0.00654517
-  name "rounded box(10)"
-  size 2 10 2
-}
-SolidRoundedBox {
-  translation -36.8578 34.4436 1
-  name "rounded box(2)"
-}
-SolidRoundedBox {
-  translation -33.087 38.1929 1
-  name "rounded box(3)"
-}
-SolidRoundedBox {
-  translation -30.8325 38.5037 1
-  name "rounded box(13)"
-}
-SolidRoundedBox {
-  translation -27.3083 32.8202 1
-  name "rounded box(4)"
-}
-SolidRoundedBox {
-  translation -23.1975 23.782 1
-  name "rounded box(12)"
-}
-SolidRoundedBox {
-  translation -29.4659 32.0037 1
-  name "rounded box(11)"
-}
-SolidRoundedBox {
-  translation -34.8504 36.1671 1
-  name "rounded box(5)"
-}
-SolidRoundedBox {
-  translation -20.0214 34.6029 1
-  name "rounded box(1)"
+  appearance PBRAppearance {
+    baseColor 0 1 0
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
 }
 Road {
-  translation -16 -15.5 0.25
+  translation -16 -15.5 0.006
+  name "mainroad"
   width 2
   lines [
     RoadLine {
@@ -149,7 +140,13 @@ Road {
       type "continuous"
     }
   ]
-  roadBorderHeight 0.4
+  roadBorderHeight 0.5
+  roadBorderWidth [
+    0.1
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+  bottom TRUE
   wayPoints [
     0 0 0
     10 0 0
@@ -161,7 +158,47 @@ Road {
     28 0 0
     35 30 0
     10 30 0
-    0 30 1
-    0 36 2
+    2 30 0
+    2 35.5 0
   ]
+  appearance Asphalt {
+    colorOverride 0 1 0
+  }
+}
+SummitXlSteel {
+  hidden position_0_0 99.47490051588994
+  hidden position_0_1 99.47495727871406
+  hidden position_0_2 99.4002652211468
+  hidden position_0_3 99.40025439282323
+  hidden translation_7 0.21972655298968274 -0.20449996661010172 0.0015676824487852066
+  hidden rotation_7 0.7714201119861945 -0.44994973247131537 0.4499513852320037 1.8274569418664328
+  hidden translation_8 0.21972814731993426 0.20450003337390876 0.0015669888048670342
+  hidden rotation_8 0.7714404827230706 -0.4499322695752397 0.44993392227178164 1.8274314003231877
+  hidden translation_9 -0.225339230892184 0.2045000329443426 0.001336092409189785
+  hidden rotation_9 0.7443243218732659 -0.47221799292651995 0.4722197274832467 1.8618786364120465
+  hidden translation_10 -0.22534081002960327 -0.20449996703966933 0.0013367979909155235
+  hidden rotation_10 0.74432034880597 -0.47222112413086414 0.4722228586990912 1.8618837496975895
+  translation 1.51938 5.77565 0.123132
+  rotation -5.483264023871908e-05 -0.9999999984590112 -8.680954524587512e-06 0.05113151966405413
+  controller "controller_marie"
+  frontLidarSlot [
+    DistanceSensor {
+      translation -0.02 0 -0.13
+      rotation 1 0 0 3.14159
+      name "distance sensor right"
+      aperture 3
+    }
+  ]
+  backLidarSlot [
+    DistanceSensor {
+      translation -0.52 0.42 0
+      rotation -0.6087597279983167 -0.7933546455189312 9.72932565281205e-07 3.14159
+      name "distance sensor left"
+      aperture 3
+    }
+  ]
+}
+SolidBox {
+  translation 3.62888 4.63919 0.88
+  rotation 0 1 0 0
 }
