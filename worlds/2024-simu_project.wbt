@@ -1,4 +1,4 @@
-#VRML_SIM R2023b utf8
+#VRML_SIM R2023a utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -12,21 +12,20 @@ EXTERNPROTO "../protos/SolidPipe3.proto"
 EXTERNPROTO "../protos/SolidPipe4.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Asphalt.proto"
 EXTERNPROTO "../protos/Road.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/obstacles/protos/Ramp30deg.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/PedestrianCrossing.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwayPole.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwaySign.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadPillars.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidRoundedBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidPipe.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
 
 WorldInfo {
   basicTimeStep 20
 }
 Viewpoint {
-  orientation -0.6833381861644573 0.4831091973631933 0.5474070028347835 2.4030838585503984
-  position -8.58639926941763 8.335224425793548 72.90714996258825
+  orientation 0.23886087614920706 -0.03620065378224663 -0.9703787891905774 3.8445674941457026
+  position -7.261749662827354 10.990176159783482 12.700543356388566
+}
+TexturedBackground {
+  texture "twilight_cloudy_empty"
 }
 TexturedBackgroundLight {
 }
@@ -321,6 +320,33 @@ SummitXlSteel {
       name "distance sensor left"
       numberOfRays 2
       aperture 5
+    }
+  ]
+}
+Pioneer3dx {
+  hidden position_0_0 -2.845441889675593
+  hidden position_0_1 175.17783176161785
+  hidden position_0_2 165.1223973079401
+  hidden linearVelocity_0 -0.7947131090166147 0.8925469139062788 0.013060800735375147
+  hidden angularVelocity_0 -0.11980925524533392 -0.11039260085339814 2.803479457645633e-05
+  hidden rotation_1 -0.4638163508417947 -0.6264480473028226 -0.6264481117556998 4.010160671625274
+  hidden position_1_0 -198.98288695468517
+  hidden linearVelocity_1 -0.6854703404211497 0.7418446860879334 0.0279140369643094
+  hidden angularVelocity_1 -2.09397092824549 2.1362214290247277 -83.22983043587087
+  hidden rotation_2 1 0 0 2.0790428750615964
+  hidden linearVelocity_2 -0.3246506211125886 0.27355733376734204 0.0054704686587083995
+  hidden angularVelocity_2 -5.607233113842932 9.58374820970424 -79.64291646709721
+  hidden rotation_4 0.6759511762564749 -0.6759511988619438 -0.29356427588279344 2.570508443066459
+  hidden linearVelocity_4 -0.7884163500481597 0.8857274846952198 0.0024769754726012318
+  hidden angularVelocity_4 -9.08493062408284 -8.086971888836215 -0.0003915472147371093
+  hidden rotation_9 -0.09383552736798259 0.09383559150913275 -0.991155777650367 1.579679721057985
+  hidden linearVelocity_9 -0.7884343930319541 0.8857274088012395 0.0033659606207120515
+  hidden angularVelocity_9 -9.084931050724562 -8.086978155765513 -0.00039377912899551113
+  translation -27.65296631597205 34.89878500948713 0.09619510109828439
+  rotation -0.015672063472555182 0.0070719961631450995 -0.9998521757223817 -2.2979857248183166
+  controller "controller_damou"
+  extensionSlot [
+    Compass {
     }
   ]
 }
