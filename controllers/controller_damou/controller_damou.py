@@ -60,14 +60,14 @@ class monRobot(Robot):
 
     def cap(self, cap_actuel, cap_vise):
 
-        if self.dect == False:
-                pass
+        #if self.dect == False:
+        #        pass
         
-        elif ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
+        #elif ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
+        if not ( cap_vise - 4 < cap_actuel < cap_vise + 4):
             
             if  cap_actuel >= cap_vise:
                 
-
                 self.motors.turn_left(1)
                 cap_actuel = self.ValueCompass()
                
@@ -80,7 +80,7 @@ class monRobot(Robot):
 
         else: 
             self.route = True
-            self.dect = False
+            #self.dect = False
 
 
     def run(self):
@@ -97,13 +97,19 @@ class monRobot(Robot):
         if self.route == False :
             self.cap(self.ValueCompass() , 225)
 
-        elif self.so1.getValue() >= 400 or self.so2.getValue() >= 400 or self.so3.getValue() >= 400:
-            self.dect = True
-            self.motors.turn_right(5)
-           
-        elif self.so6.getValue() >= 400 or self.so5.getValue() >= 400 or self.so4.getValue() >= 400:
-            self.dect = True
-            self.motors.turn_left(5)
+        elif self.so1.getValue() >= 650 or self.so2.getValue() >= 750 or self.so3.getValue() >= 850 or self.so6.getValue() >= 650 or self.so5.getValue() >= 750 or self.so4.getValue() >= 850:
+            #self.dect = True
+
+            if self.so1.getValue() > self.so6.getValue():
+                self.motors.turn_right(5)
+            elif self.so1.getValue() < self.so6.getValue():
+                self.motors.turn_left(5)
+            
+            elif self.so2.getValue() + self.so3.getValue() > self.so5.getValue() + self.so4.getValue():
+                self.motors.turn_right(8)
+
+            elif self.so2.getValue() + self.so3.getValue() < self.so5.getValue() + self.so4.getValue():
+                self.motors.turn_left(8)
 
         elif self.test_cap >= 40:
 
@@ -158,4 +164,3 @@ while robot.step(robot.timestep) != -1:
     pass
 
 # Enter here exit cleanup code.
-
