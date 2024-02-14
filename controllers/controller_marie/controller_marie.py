@@ -4,10 +4,14 @@ from controller import Robot, Camera, Motor, DistanceSensor
 class MarieBastienRobot(Robot):
     def __init__(self):
         super().__init__()
-        self.max_speed = 35
+        
+        self.max_speed = 37
         self.wall_distance_threshold = 1000.0
 
         self.timestep = int(self.getBasicTimeStep())
+
+        self.camera:Camera=self.getDevice("rgb_camera")
+        self.camera.enable(self.timestep)
 
         self.ds_left:DistanceSensor = self.getDevice('distance sensor left')
         self.ds_right:DistanceSensor = self.getDevice('distance sensor right')
