@@ -56,32 +56,23 @@ class monRobot(Robot):
 
         self.route = False
         self.test_cap = 0
-        self.dect = True
 
     def cap(self, cap_actuel, cap_vise):
 
-        #if self.dect == False:
-        #        pass
-        
-        #elif ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
-        if not ( cap_vise - 4 < cap_actuel < cap_vise + 4):
-            
+
+        if ( cap_vise - 1 > cap_actuel)  or  (cap_actuel > cap_vise + 1):
+
             if  cap_actuel >= cap_vise:
                 
                 self.motors.turn_left(1)
                 cap_actuel = self.ValueCompass()
-               
-
             elif cap_actuel <= cap_vise:
                 
                 self.motors.turn_right(1)
                 cap_actuel = self.ValueCompass()
-                
 
         else: 
             self.route = True
-            #self.dect = False
-
 
     def run(self):
         
@@ -97,27 +88,21 @@ class monRobot(Robot):
         if self.route == False :
             self.cap(self.ValueCompass() , 225)
 
-        elif self.so1.getValue() >= 650 or self.so2.getValue() >= 750 or self.so3.getValue() >= 850 or self.so6.getValue() >= 650 or self.so5.getValue() >= 750 or self.so4.getValue() >= 850:
-            #self.dect = True
+        elif self.so1.getValue() >= 450 or self.so2.getValue() >= 450 or self.so3.getValue() >= 450:
+              
+            self.motors.turn_right(5)
+           
+        elif self.so6.getValue() >= 450 or self.so5.getValue() >= 450 or self.so4.getValue() >= 450:
 
-            if self.so1.getValue() > self.so6.getValue():
-                self.motors.turn_right(5)
-            elif self.so1.getValue() < self.so6.getValue():
-                self.motors.turn_left(5)
-            
-            elif self.so2.getValue() + self.so3.getValue() > self.so5.getValue() + self.so4.getValue():
-                self.motors.turn_right(8)
+            self.motors.turn_left(5)
 
-            elif self.so2.getValue() + self.so3.getValue() < self.so5.getValue() + self.so4.getValue():
-                self.motors.turn_left(8)
-
-        elif self.test_cap >= 40:
+        elif self.test_cap == 40:
 
             self.test_cap = 0
             self.route = False
 
         else:
-            self.motors.forward(12)
+            self.motors.forward(9)
             self.test_cap +=1
         pass
         
@@ -164,3 +149,4 @@ while robot.step(robot.timestep) != -1:
     pass
 
 # Enter here exit cleanup code.
+
