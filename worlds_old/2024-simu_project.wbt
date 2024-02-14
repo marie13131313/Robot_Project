@@ -1,0 +1,209 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "../protos/RoadLine.proto"
+EXTERNPROTO "../protos/SolidPipe1.proto"
+EXTERNPROTO "../protos/SolidPipe2.proto"
+EXTERNPROTO "../protos/SolidPipe3.proto"
+EXTERNPROTO "../protos/SolidPipe4.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Asphalt.proto"
+EXTERNPROTO "../protos/Road.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/obstacles/protos/Ramp30deg.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/solids/protos/SolidBox.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.33849939380274563 -0.020463337472098053 -0.9407440737069126 3.2553068838187094
+  position 12.012504588750028 4.023193212467204 9.677999142548517
+}
+TexturedBackgroundLight {
+}
+TexturedBackground {
+  texture "twilight_cloudy_empty"
+  skyColor [
+    0 0 1
+  ]
+}
+RectangleArena {
+  translation 1.62531 0.849485 5.68434e-14
+  floorSize 35 35
+  floorTileSize 20 20
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallThickness 0.5
+  wallHeight 0
+}
+SolidBox {
+  translation 3.31 10.09 0.93
+}
+SolidBox {
+  translation -1.47466 7.10664 0.68
+  rotation 0 0 1 4.692820414042842e-06
+  name "box(1)"
+}
+Floor {
+  translation -15 22 0.01
+  name "Relay1"
+  size 5 5
+  appearance Parquetry {
+    colorOverride 1 0 1
+  }
+}
+Floor {
+  translation -45 52 0.01
+  name "Relay2"
+  size 5 5
+  appearance Parquetry {
+    colorOverride 0 1 1
+  }
+}
+Ramp30deg {
+  translation -14.1511 19.1333 3.55271e-15
+  rotation 0 0 1 1.8326
+}
+RectangleArena {
+  translation -29.7867 36.7686 1.03739e-12
+  name "rectangle arena(1)"
+  floorSize 35 35
+  floorTileSize 20 20
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallThickness 0.5
+  wallHeight 0
+}
+RectangleArena {
+  translation -60.5709 69.2032 -1.85
+  name "rectangle arena(2)"
+  floorSize 35 35
+  floorTileSize 20 20
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallThickness 0.5
+  wallHeight 1
+}
+SolidPipe1 {
+  translation -74.1397 75.406 2
+  rotation 1 0 0 -1.5707953071795862
+  name "pipe4"
+  height 12
+  appearance PBRAppearance {
+    baseColor 1 1 0
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe2 {
+  translation -60.6807 69.4101 7
+  rotation 1 0 0 -1.5707953071795862
+  name "pipe2"
+  height 5
+  appearance PBRAppearance {
+    baseColor 0 1 1
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe3 {
+  translation -53.934 76.2414 4
+  rotation -0.8768880072093348 -0.33990200279450433 0.3399030027945126 1.7018
+  name "pipe1"
+  height 8
+  appearance PBRAppearance {
+    baseColor 1 0 1
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe4 {
+  translation -68.7366 59.6817 10
+  rotation -0.5697930319719425 0.5810920326059464 -0.5810920326059464 2.10577
+  name "pipe3"
+  height 5
+  appearance PBRAppearance {
+    baseColor 0 1 0
+    transparency 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Road {
+  translation -16 -15.5 0.006
+  name "mainroad"
+  width 2
+  lines [
+    RoadLine {
+      color 0 1 0
+      type "continuous"
+    }
+  ]
+  roadBorderHeight 0.5
+  roadBorderWidth [
+    0.1
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+  bottom TRUE
+  wayPoints [
+    0 0 0
+    10 0 0
+    10 15 0
+    10 20 0
+    17 20 0
+    17 0 0
+    23 0 0
+    28 0 0
+    35 30 0
+    10 30 0
+    2 30 0
+    2 35.5 0
+  ]
+  appearance Asphalt {
+    colorOverride 0 1 0
+  }
+}
+SummitXlSteel {
+  hidden position_0_0 336.8555019114184
+  hidden position_0_1 866.1527768077799
+  hidden position_0_2 863.6749749033282
+  hidden position_0_3 363.53973065644686
+  hidden translation_7 0.22043587489109867 -0.20449996661010172 -0.0024267311581776074
+  hidden rotation_7 0.25177441576741005 -0.6843267506117452 0.6843292642888725 2.648298387006315
+  hidden translation_8 0.21995316513227625 0.20450003337390876 0.0019110869554033628
+  hidden rotation_8 0.8166670392559674 -0.4080770292565872 0.40807852820996426 1.7719533138121653
+  hidden translation_9 -0.2216834164072679 0.2045000329443426 -0.0030297798964788293
+  hidden rotation_9 -0.0931197779704723 -0.7040330480869016 0.7040356341494345 3.3272960022167526
+  hidden translation_10 -0.22493034947941878 -0.20449996703966933 0.0019876196569512707
+  hidden rotation_10 0.8307230851058766 -0.3936356294525536 0.3936370753596094 1.7552046185901218
+  translation 0.599318 6.0996 0.120169
+  rotation 0.023709702906850295 -0.013886609090070928 0.9996224347602691 3.1382169906015203
+  controller "controller_marie"
+  frontLidarSlot [
+    DistanceSensor {
+      translation 0.271923 0.176776 -0.13
+      rotation -0.9238792538349399 0.3826841051420913 -2.2341506138307407e-06 -3.1415853071795863
+      name "distance sensor right"
+      aperture 3
+    }
+  ]
+  backLidarSlot [
+    DistanceSensor {
+      translation -0.285135 0.567338 -0.2
+      rotation -0.38268119092679564 -0.9238804609412224 1.3725806848061471e-06 3.14159
+      name "distance sensor left"
+      numberOfRays 2
+      aperture 5
+    }
+  ]
+}

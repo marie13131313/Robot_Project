@@ -4,8 +4,8 @@ from controller import Robot, Camera, Motor, DistanceSensor
 class MarieBastienRobot(Robot):
     def __init__(self):
         super().__init__()
-        self.max_speed = 5.0
-        self.wall_distance_threshold = 0.5  
+        self.max_speed = 35
+        self.wall_distance_threshold = 1000.0
 
         self.timestep = int(self.getBasicTimeStep())
 
@@ -42,21 +42,26 @@ class MarieBastienRobot(Robot):
                 # Éviter le mur à gauche
                 self.front_left_wheel.setVelocity(self.max_speed)
                 self.back_left_wheel.setVelocity(self.max_speed)
-                self.front_right_wheel.setVelocity(0)
-                self.back_right_wheel.setVelocity(0)
+                self.front_right_wheel.setVelocity(-self.max_speed)
+                self.back_right_wheel.setVelocity(-self.max_speed)
+                print("je vais à droite")
 
-            elif self.ds_left.getValue() < self.wall_distance_threshold:
+            elif self.ds_right.getValue() < self.wall_distance_threshold:
                 # Éviter le mur à droite
-                self.front_left_wheel.setVelocity(0)
-                self.back_left_wheel.setVelocity(0)
+                self.front_left_wheel.setVelocity(-self.max_speed)
+                self.back_left_wheel.setVelocity(-self.max_speed)
                 self.front_right_wheel.setVelocity(self.max_speed)
                 self.back_right_wheel.setVelocity(self.max_speed)
+                print("je vais à gauche")
                 
             else:
-                    self.front_left_wheel.setVelocity(self.max_speed)
-                    self.back_left_wheel.setVelocity(self.max_speed)
-                    self.front_right_wheel.setVelocity(self.max_speed)
-                    self.back_right_wheel.setVelocity(self.max_speed)
+                self.front_left_wheel.setVelocity(self.max_speed)
+                self.back_left_wheel.setVelocity(self.max_speed)
+                self.front_right_wheel.setVelocity(self.max_speed)
+                self.back_right_wheel.setVelocity(self.max_speed)
+                print("je vais tout droit")
+            
+            
 
 robot = MarieBastienRobot()
 robot.run()

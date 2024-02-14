@@ -1,31 +1,37 @@
-#VRML_SIM R2023a utf8
+#VRML_SIM R2023b utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 EXTERNPROTO "../protos/RoadLine.proto"
+EXTERNPROTO "../protos/SolidRoundedBox.proto"
 EXTERNPROTO "../protos/SolidPipe1.proto"
 EXTERNPROTO "../protos/SolidPipe2.proto"
 EXTERNPROTO "../protos/SolidPipe3.proto"
 EXTERNPROTO "../protos/SolidPipe4.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Asphalt.proto"
 EXTERNPROTO "../protos/Road.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/obstacles/protos/Ramp30deg.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/PedestrianCrossing.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwayPole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwaySign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadPillars.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/solids/protos/SolidBox.proto"
 
 WorldInfo {
+  basicTimeStep 20
 }
 Viewpoint {
-  orientation -0.13956153707693975 -0.8582646328127163 0.4938667810569722 5.647051227508112
-  position -5.531385165505226 7.977356570377941 5.426259461952099
+  orientation -0.6833381861644573 0.4831091973631933 0.5474070028347835 2.4030838585503984
+  position -8.58639926941763 8.335224425793548 72.90714996258825
 }
 TexturedBackgroundLight {
 }
 TexturedBackground {
-  texture "twilight_cloudy_empty"
+  texture "noon_park_empty"
   skyColor [
     0 0 1
   ]
@@ -38,23 +44,7 @@ RectangleArena {
     type "light strip"
   }
   wallThickness 0.5
-  wallHeight 0
-}
-Floor {
-  translation -15 22 0.01
-  name "Relay1"
-  size 5 5
-  appearance Parquetry {
-    colorOverride 1 0 1
-  }
-}
-Floor {
-  translation -45 52 0.01
-  name "Relay2"
-  size 5 5
-  appearance Parquetry {
-    colorOverride 0 1 1
-  }
+  wallHeight 0.5
 }
 Ramp30deg {
   translation -14.1511 19.1333 3.55271e-15
@@ -69,10 +59,23 @@ RectangleArena {
     type "light strip"
   }
   wallThickness 0.5
-  wallHeight 0
+  wallHeight 0.5
+}
+PedestrianCrossing {
+  translation -15.9785 22.5101 -0.19
+  rotation 0 0 1 1.5708
+  size 8 8
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -43.7573 51.0985 -0.19
+  rotation 0 0 1 1.5708
+  name "pedestrian crossing(1)"
+  size 8 8
+  enableBoundingObject FALSE
 }
 RectangleArena {
-  translation -60.5709 69.2032 -1.85
+  translation -61.53 72.2683 0
   name "rectangle arena(2)"
   floorSize 35 35
   floorTileSize 20 20
@@ -80,7 +83,17 @@ RectangleArena {
     type "light strip"
   }
   wallThickness 0.5
-  wallHeight 1
+  wallHeight 0.5
+}
+HighwayPole {
+  translation -46.6667 88.7436 -0.14
+  rotation 0 0 1 -1.5707953071795862
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0.09 0 0
+      name "vertical sign"
+    }
+  ]
 }
 SolidPipe1 {
   translation -74.1397 75.406 2
@@ -130,8 +143,73 @@ SolidPipe4 {
     metalness 0
   }
 }
+SolidRoundedBox {
+  translation -14.8371 31.6911 2
+  size 5 10 5
+}
+SolidRoundedBox {
+  translation -34.8845 49.2527 2
+  name "rounded box(8)"
+  size 5 10 5
+}
+SolidRoundedBox {
+  translation -42.0283 31.498 2
+  rotation 0 0 1 1.56425
+  name "rounded box(7)"
+  size 5 10 5
+}
+SolidRoundedBox {
+  translation -21.8989 46.2055 1
+  rotation 0 0 -1 0.935933
+  name "rounded box(6)"
+  size 2 8 2
+}
+SolidRoundedBox {
+  translation -31.6855 27.8511 1
+  rotation 0 0 -1 0.00654517
+  name "rounded box(9)"
+  size 2 10 2
+}
+SolidRoundedBox {
+  translation -25.3049 38.1055 1
+  rotation 0 0 -1 0.00654517
+  name "rounded box(10)"
+  size 2 10 2
+}
+SolidRoundedBox {
+  translation -36.8578 34.4436 1
+  name "rounded box(2)"
+}
+SolidRoundedBox {
+  translation -33.087 38.1929 1
+  name "rounded box(3)"
+}
+SolidRoundedBox {
+  translation -30.8325 38.5037 1
+  name "rounded box(13)"
+}
+SolidRoundedBox {
+  translation -27.3083 32.8202 1
+  name "rounded box(4)"
+}
+SolidRoundedBox {
+  translation -23.1975 23.782 1
+  name "rounded box(12)"
+}
+SolidRoundedBox {
+  translation -29.4659 32.0037 1
+  name "rounded box(11)"
+}
+SolidRoundedBox {
+  translation -34.8504 36.1671 1
+  name "rounded box(5)"
+}
+SolidRoundedBox {
+  translation -20.0214 34.6029 1
+  name "rounded box(1)"
+}
 Road {
-  translation -16 -15.5 0.006
+  translation -16 -15.5 0.01
   name "mainroad"
   width 2
   lines [
@@ -142,7 +220,7 @@ Road {
   ]
   roadBorderHeight 0.5
   roadBorderWidth [
-    0.1
+    0.6
   ]
   rightBarrier TRUE
   leftBarrier TRUE
@@ -164,41 +242,85 @@ Road {
   appearance Asphalt {
     colorOverride 0 1 0
   }
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+RubberDuck {
+  hidden linearVelocity_0 -0.01087973521435017 0.011231541186191941 -0.00047369316614990006
+  hidden angularVelocity_0 -0.04340703954294722 -0.042047399273771116 -8.29259942550064e-12
+  translation -43.70500423463222 31.577667802657807 4.714911286122518
+  rotation -0.00034209099567691784 -0.0008076487064652507 -0.9999996153385848 0.8013077433196314
+  scale 14
+}
+RubberDuck {
+  translation 6.761839173678886 -9.708543554652008 0.4427107372551995
+  rotation -0.00019387379873065752 -2.2973966150456495e-05 0.9999999809425734 -2.9056936224665204
+  name "rubber duck(1)"
+  scale 30
+}
+TrafficCone {
+  translation -35.0519 49.191 4.41
+  scale 4
+}
+TrafficCone {
+  translation -12.2273 6.83311 -2.84217e-13
+  scale 10
+  name "traffic cone(1)"
+}
+RubberDuck {
+  hidden linearVelocity_0 0.004500515966946111 0.004358491144586522 -0.0004884477703973496
+  hidden angularVelocity_0 -0.011803142742830912 0.012187757362114113 -5.201384514637216e-11
+  translation -15.024365441667886 33.04878554350353 4.730559047061028
+  rotation -0.0007349533081389015 0.0018153476936218413 0.9999980821763541 0.7693692490273145
+  name "rubber duck(2)"
+  scale 18
+}
+RoadPillars {
+  translation -73.9608 75.7566 -1.5
+  rotation 0 0 1 -1.5707953071795862
+  height 6
 }
 SummitXlSteel {
-  hidden position_0_0 99.47490051588994
-  hidden position_0_1 99.47495727871406
-  hidden position_0_2 99.4002652211468
-  hidden position_0_3 99.40025439282323
-  hidden translation_7 0.21972655298968274 -0.20449996661010172 0.0015676824487852066
-  hidden rotation_7 0.7714201119861945 -0.44994973247131537 0.4499513852320037 1.8274569418664328
-  hidden translation_8 0.21972814731993426 0.20450003337390876 0.0015669888048670342
-  hidden rotation_8 0.7714404827230706 -0.4499322695752397 0.44993392227178164 1.8274314003231877
-  hidden translation_9 -0.225339230892184 0.2045000329443426 0.001336092409189785
-  hidden rotation_9 0.7443243218732659 -0.47221799292651995 0.4722197274832467 1.8618786364120465
-  hidden translation_10 -0.22534081002960327 -0.20449996703966933 0.0013367979909155235
-  hidden rotation_10 0.74432034880597 -0.47222112413086414 0.4722228586990912 1.8618837496975895
-  translation 1.51938 5.77565 0.123132
-  rotation -5.483264023871908e-05 -0.9999999984590112 -8.680954524587512e-06 0.05113151966405413
+  hidden position_0_0 504.39498298875895
+  hidden position_0_1 1032.1597339787377
+  hidden position_0_2 1029.6156699549588
+  hidden position_0_3 530.9204557199143
+  hidden linearVelocity_0 6.527586006292885e-08 -9.846916939196955e-09 -3.8952966860961174e-11
+  hidden angularVelocity_0 -1.0844510879476524e-08 -7.641655247706386e-08 1.490116531559355e-07
+  hidden translation_7 0.2256404064097039 -0.20449996661010172 -0.0005361754947381067
+  hidden rotation_7 0.5122561593050894 0.6072853192368994 -0.6072875499245278 2.1947868485209487
+  hidden linearVelocity_7 6.395851629279056e-09 3.9109973058477105e-09 1.6158754003926326e-08
+  hidden angularVelocity_7 -1.269599128954192e-08 -6.480988382635283e-08 1.4726315068554966e-07
+  hidden translation_8 0.22565011002355626 0.20450003337390876 -0.00046414225627142337
+  hidden rotation_8 0.5210058814533144 0.6035520670857374 -0.6035542840603388 2.1809741655088186
+  hidden linearVelocity_8 -2.3211086578184483e-09 5.199430266133759e-09 1.6348000186073367e-08
+  hidden angularVelocity_8 -1.3622155079492954e-08 -7.108844916933005e-08 1.4730343195044067e-07
+  hidden translation_9 -0.22480914222006554 0.2045000329443426 0.0021246734319742486
+  hidden rotation_9 0.8497815591683187 -0.3727400441454997 0.372741413298646 1.7328618098352633
+  hidden linearVelocity_9 -3.777102151872202e-09 -4.425869108602477e-09 -1.6194195211140662e-08
+  hidden angularVelocity_9 -6.709832573868476e-09 -7.219909645448041e-08 1.4732586885963537e-07
+  hidden translation_10 -0.22247186477376418 -0.20449996703966933 -0.0031394966000706046
+  hidden rotation_10 0.003076893285613294 0.7071021353232455 -0.7071047326591836 3.135438909042178
+  hidden linearVelocity_10 2.5810655536201703e-07 -4.3089686878578185e-08 -1.6270179784755545e-08
+  hidden angularVelocity_10 3.4699567375953074e-07 2.320528680081976e-06 1.3194004236938066e-07
+  translation -15.41042118595615 -15.46231030511791 0.1170224712453716
+  rotation -0.04347114841233615 0.0024644718023300693 -0.9990516431268446 0.14685597767334058
   controller "controller_marie"
   frontLidarSlot [
     DistanceSensor {
-      translation -0.02 0 -0.13
-      rotation 1 0 0 3.14159
+      translation 0.0739344 0.021213 -0.130001
+      rotation -1 8.68609e-07 -7.25755e-07 -3.1415853071795863
       name "distance sensor right"
       aperture 3
     }
   ]
   backLidarSlot [
     DistanceSensor {
-      translation -0.52 0.42 0
-      rotation -0.6087597279983167 -0.7933546455189312 9.72932565281205e-07 3.14159
+      translation -0.440697 0.496628 -0.27
+      rotation 0.25881709356674304 0.9659263491986608 -1.1876604293592692e-06 -3.1415853071795863
       name "distance sensor left"
-      aperture 3
+      numberOfRays 2
+      aperture 5
     }
   ]
-}
-SolidBox {
-  translation 3.62888 4.63919 0.88
-  rotation 0 1 0 0
 }
