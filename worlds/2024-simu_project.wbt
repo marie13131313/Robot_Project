@@ -1,4 +1,4 @@
-#VRML_SIM R2023a utf8
+#VRML_SIM R2023b utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -12,20 +12,23 @@ EXTERNPROTO "../protos/SolidPipe3.proto"
 EXTERNPROTO "../protos/SolidPipe4.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Asphalt.proto"
 EXTERNPROTO "../protos/Road.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidRoundedBox.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidPipe.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/obstacles/protos/Ramp30deg.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/PedestrianCrossing.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/toys/protos/RubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwayPole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwaySign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadPillars.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
 
 WorldInfo {
   basicTimeStep 20
 }
 Viewpoint {
-  orientation 0.23886087614920706 -0.03620065378224663 -0.9703787891905774 3.8445674941457026
-  position -7.261749662827354 10.990176159783482 12.700543356388566
-}
-TexturedBackground {
-  texture "twilight_cloudy_empty"
+  orientation -0.21834506308069718 0.050066432005996385 0.974586469131639 2.7018858971498063
+  position 62.558721105569425 0.2761614695606398 42.60260719387385
 }
 TexturedBackgroundLight {
 }
@@ -44,6 +47,10 @@ RectangleArena {
   }
   wallThickness 0.5
   wallHeight 0.5
+}
+Mavic2Pro {
+  translation -49.1363 58.0199 0.205
+  controller "monde3"
 }
 Ramp30deg {
   translation -14.1511 19.1333 3.55271e-15
@@ -245,8 +252,6 @@ Road {
   leftBorderBoundingObject TRUE
 }
 RubberDuck {
-  hidden linearVelocity_0 -0.01087973521435017 0.011231541186191941 -0.00047369316614990006
-  hidden angularVelocity_0 -0.04340703954294722 -0.042047399273771116 -8.29259942550064e-12
   translation -43.70500423463222 31.577667802657807 4.714911286122518
   rotation -0.00034209099567691784 -0.0008076487064652507 -0.9999996153385848 0.8013077433196314
   scale 14
@@ -261,14 +266,20 @@ TrafficCone {
   translation -35.0519 49.191 4.41
   scale 4
 }
+Pioneer3dx {
+  translation -16.9057 23.6562 0.0975
+  controller "monde2"
+  extensionSlot [
+    Compass {
+    }
+  ]
+}
 TrafficCone {
   translation -12.2273 6.83311 -2.84217e-13
   scale 10
   name "traffic cone(1)"
 }
 RubberDuck {
-  hidden linearVelocity_0 0.004500515966946111 0.004358491144586522 -0.0004884477703973496
-  hidden angularVelocity_0 -0.011803142742830912 0.012187757362114113 -5.201384514637216e-11
   translation -15.024365441667886 33.04878554350353 4.730559047061028
   rotation -0.0007349533081389015 0.0018153476936218413 0.9999980821763541 0.7693692490273145
   name "rubber duck(2)"
@@ -280,31 +291,21 @@ RoadPillars {
   height 6
 }
 SummitXlSteel {
-  hidden position_0_0 504.39498298875895
-  hidden position_0_1 1032.1597339787377
-  hidden position_0_2 1029.6156699549588
-  hidden position_0_3 530.9204557199143
-  hidden linearVelocity_0 6.527586006292885e-08 -9.846916939196955e-09 -3.8952966860961174e-11
-  hidden angularVelocity_0 -1.0844510879476524e-08 -7.641655247706386e-08 1.490116531559355e-07
-  hidden translation_7 0.2256404064097039 -0.20449996661010172 -0.0005361754947381067
-  hidden rotation_7 0.5122561593050894 0.6072853192368994 -0.6072875499245278 2.1947868485209487
-  hidden linearVelocity_7 6.395851629279056e-09 3.9109973058477105e-09 1.6158754003926326e-08
-  hidden angularVelocity_7 -1.269599128954192e-08 -6.480988382635283e-08 1.4726315068554966e-07
-  hidden translation_8 0.22565011002355626 0.20450003337390876 -0.00046414225627142337
-  hidden rotation_8 0.5210058814533144 0.6035520670857374 -0.6035542840603388 2.1809741655088186
-  hidden linearVelocity_8 -2.3211086578184483e-09 5.199430266133759e-09 1.6348000186073367e-08
-  hidden angularVelocity_8 -1.3622155079492954e-08 -7.108844916933005e-08 1.4730343195044067e-07
-  hidden translation_9 -0.22480914222006554 0.2045000329443426 0.0021246734319742486
-  hidden rotation_9 0.8497815591683187 -0.3727400441454997 0.372741413298646 1.7328618098352633
-  hidden linearVelocity_9 -3.777102151872202e-09 -4.425869108602477e-09 -1.6194195211140662e-08
-  hidden angularVelocity_9 -6.709832573868476e-09 -7.219909645448041e-08 1.4732586885963537e-07
-  hidden translation_10 -0.22247186477376418 -0.20449996703966933 -0.0031394966000706046
-  hidden rotation_10 0.003076893285613294 0.7071021353232455 -0.7071047326591836 3.135438909042178
-  hidden linearVelocity_10 2.5810655536201703e-07 -4.3089686878578185e-08 -1.6270179784755545e-08
-  hidden angularVelocity_10 3.4699567375953074e-07 2.320528680081976e-06 1.3194004236938066e-07
+  hidden position_0_0 504.3949837206378
+  hidden position_0_1 1032.1597351659418
+  hidden position_0_2 1029.6156694166093
+  hidden position_0_3 530.920455463784
+  hidden translation_7 0.22564040601728755 -0.20449996661010172 -0.000536177793135014
+  hidden rotation_7 0.512255878760375 0.6072854375586934 -0.6072876682467562 2.194787292980277
+  hidden translation_8 0.22565010947252243 0.20450003337390876 -0.0004641459960947389
+  hidden rotation_8 0.5210054259313157 0.6035522636956401 -0.6035544806709636 2.1809748820484445
+  hidden translation_9 -0.22480914336388202 0.2045000329443426 0.002124672188848455
+  hidden rotation_9 0.8497813863832204 -0.37274024110447873 0.37274161025834857 1.7328620104997206
+  hidden translation_10 -0.22247186396964397 -0.20449996703966933 -0.0031394965928642177
+  hidden rotation_10 0.003076983841946494 0.7071021351262194 -0.7071047324621568 3.135438727931892
   translation -15.41042118595615 -15.46231030511791 0.1170224712453716
   rotation -0.04347114841233615 0.0024644718023300693 -0.9990516431268446 0.14685597767334058
-  controller "controller_marie"
+  controller "monde1"
   frontLidarSlot [
     DistanceSensor {
       translation 0.0739344 0.021213 -0.130001
@@ -320,33 +321,6 @@ SummitXlSteel {
       name "distance sensor left"
       numberOfRays 2
       aperture 5
-    }
-  ]
-}
-Pioneer3dx {
-  hidden position_0_0 -2.845441889675593
-  hidden position_0_1 175.17783176161785
-  hidden position_0_2 165.1223973079401
-  hidden linearVelocity_0 -0.7947131090166147 0.8925469139062788 0.013060800735375147
-  hidden angularVelocity_0 -0.11980925524533392 -0.11039260085339814 2.803479457645633e-05
-  hidden rotation_1 -0.4638163508417947 -0.6264480473028226 -0.6264481117556998 4.010160671625274
-  hidden position_1_0 -198.98288695468517
-  hidden linearVelocity_1 -0.6854703404211497 0.7418446860879334 0.0279140369643094
-  hidden angularVelocity_1 -2.09397092824549 2.1362214290247277 -83.22983043587087
-  hidden rotation_2 1 0 0 2.0790428750615964
-  hidden linearVelocity_2 -0.3246506211125886 0.27355733376734204 0.0054704686587083995
-  hidden angularVelocity_2 -5.607233113842932 9.58374820970424 -79.64291646709721
-  hidden rotation_4 0.6759511762564749 -0.6759511988619438 -0.29356427588279344 2.570508443066459
-  hidden linearVelocity_4 -0.7884163500481597 0.8857274846952198 0.0024769754726012318
-  hidden angularVelocity_4 -9.08493062408284 -8.086971888836215 -0.0003915472147371093
-  hidden rotation_9 -0.09383552736798259 0.09383559150913275 -0.991155777650367 1.579679721057985
-  hidden linearVelocity_9 -0.7884343930319541 0.8857274088012395 0.0033659606207120515
-  hidden angularVelocity_9 -9.084931050724562 -8.086978155765513 -0.00039377912899551113
-  translation -27.65296631597205 34.89878500948713 0.09619510109828439
-  rotation -0.015672063472555182 0.0070719961631450995 -0.9998521757223817 -2.2979857248183166
-  controller "controller_damou"
-  extensionSlot [
-    Compass {
     }
   ]
 }
